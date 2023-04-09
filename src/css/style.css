@@ -1,0 +1,132 @@
+body {
+    display: flex;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #001220;
+}
+
+h3 {
+    color: white;
+    margin: 0;
+}
+
+h4 {
+    color: white;
+    margin: 0;
+}
+
+.hr {
+    margin: 5px 0;
+    width: 75%;
+    height: 1px;
+    background-color: gray;
+}
+
+#content {
+    overflow: hidden;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+#container {
+    overflow: hidden;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 20px;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+}
+
+.absolute_box {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    height: 100%;
+    margin-left: auto;
+    overflow: hidden;
+}
+
+.hide_content {
+    animation: forwards hideContentAnimation 750ms ease;
+}
+
+.show_content {
+    animation: forwards showContentAnimation 750ms ease 750ms;
+}
+
+@keyframes showContentAnimation {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(-50%);
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+    }
+}
+
+@keyframes hideContentAnimation {
+    from {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(50%);
+    }
+}
+
+#waves {
+    position: absolute;
+    bottom: 0;
+    max-width:100%;
+    height: 100vh;
+}
+
+@keyframes zIndex {
+    100% {
+        z-index: 0;
+    }
+}
+
+.waves_index_0 {
+    animation: forwards zIndex 1000ms;
+}
+
+.waves_index_2 {
+    z-index: 2;
+}
+
+.hide_inactive_waves {
+    transform: translateY(50%);
+}
+
+.show_inactive_waves {
+    transform: translateY(0);
+}
+
+.hide_active_waves {
+    transform: translateY(-215%);
+}
+
+.show_active_waves {
+    transform: translateY(-165%);
+}
+
+@media screen and (max-width: 992px){
+    #waves {
+        display: none;
+    }
+
+    #content {
+        flex-direction: column;
+    }
+}
